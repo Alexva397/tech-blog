@@ -1,0 +1,14 @@
+
+<!-- Loop over each post object -->
+{{#each posts as |post| }}
+<div class="row align-center mb-5">
+  <div class="col border border-dark border-3">
+    <h3>{{post.title}}</h3>
+    <div class="row">
+      <h5 class="col-4">Author: {{post.user.username}}</h5>
+      <p class="col-4">{{format_date post.createdAt}}</p>
+    </div>
+    <p>{{post.body}}</p>
+  </div>
+</div>
+{{/each}}
