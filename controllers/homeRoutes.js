@@ -68,5 +68,16 @@ router.get('/newuser', (req, res) => {
     res.render('newuser');
 });
 
+router.get('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).redirect('/');
+        });
+    }
+    else {
+        res.status(204).redirect('/');
+    }
+});
+
 module.exports = router;
   
