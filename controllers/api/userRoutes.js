@@ -4,7 +4,6 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username =userData.username;
@@ -30,7 +29,6 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'Password not valid, please try again.' })
             return;
         }
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username =userData.username;
@@ -38,11 +36,20 @@ router.post('/login', async (req, res) => {
 
             res.json({ user: userData, message: 'logged in.' });
         })
-
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).redirect('/');
+        });
+    }
+    else {
+        res.status(204).redirect('/');
+    }
+});
 
 module.exports = router;

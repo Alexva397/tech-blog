@@ -18,11 +18,17 @@
       <li class="nav-item">
         <a class="nav-link fs-5" href="/dashboard">Dashboard</a>
       </li>
+      {{#if logged_in}}
       <li class="nav-item">
-        <a class="nav-link fs-5" href="/login">Login</a>
+        <a class="nav-link fs-5" href="/logout">Logout</a>
       </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="/login">Login</a>
+        </li>
+      {{/if}}
     </ul>
-    <h1>Blog Posts</h1>
+    <h1>Tech Blog</h1>
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}

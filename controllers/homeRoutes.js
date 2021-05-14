@@ -53,7 +53,7 @@ router.get('post/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-      res.redirect('/');
+      res.redirect('/dashboard');
       return;
     }
     res.render('login');
@@ -62,7 +62,7 @@ router.get('/login', (req, res) => {
 
 router.get('/newuser', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
     res.render('newuser');

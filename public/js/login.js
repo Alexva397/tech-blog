@@ -5,7 +5,7 @@ const loginForm = async (event) => {
     const password = document.getElementById('password-login').value.trim();
 
     if (email && password) {
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/user/login', {
             method: 'POST',
             body: JSON.stringify({
                 email: email,
@@ -13,8 +13,6 @@ const loginForm = async (event) => {
             }),
             headers: { 'Content-Type': 'application/json' },
         });
-
-        console.log(response);
 
         if (response.ok) {
             document.location.replace('/dashboard');

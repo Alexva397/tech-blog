@@ -6,7 +6,7 @@ const newUserForm = async (event) => {
     const password = document.getElementById('password-new').value.trim();
 
     if (username && email && password) {
-        const response = await fetch('/api/users', {
+        const response = await fetch('/api/user', {
             method: 'POST',
             body: JSON.stringify({
                 username: username,
