@@ -1,6 +1,26 @@
-<div class="row align-items-center">
-    <div class="col-6">
+<div class="row justify-content-center">
+    <div class="col-10">
         <h2>{{user.username}}'s Dashboard</h3>
-        
+        <a class="btn btn-primary" href="/newpost" role="button">+ New Post</a>
     </div>
 </div>
+
+
+{{#if user.posts.length}}
+    {{#each user.posts as |post| }}
+        <div class="row justify-content-center">
+            <div class="card col-10 p-0">
+            <div class="card-header text-white bg-dark">
+                <h4 class="card-title">{{post.title}}</h4>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{format_date post.createdAt}}</h6>
+                <p class="card-text">{{post.body}}</p>
+                 <a class="link-unstyled" href="/post/{{post.id}}">View Post</a>
+            </div>
+            </div>
+        </div>
+    {{/each}}
+{{/if}}
+
+<script src="/js/dashboard.js"></script>
