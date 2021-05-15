@@ -1,15 +1,17 @@
 
 <!-- Loop over each post object -->
 {{#each posts as |post| }}
-<div class="row align-center mb-5">
-  <div class="col border border-dark border-3">
-    <h3>{{post.title}}</h3>
-    <div class="row">
-      <h5 class="col-4">Author: {{post.user.username}}</h5>
-      <p class="col-4">{{format_date post.createdAt}}</p>
-    </div>
-    <a class="link-unstyled" href="/post/{{post.id}}">View Post</a>
-    <p>{{post.body}}</p>
-  </div>
-</div>
+        <div class="row justify-content-center">
+            <div class="card col-10 p-0">
+            <div class="card-header text-white bg-dark">
+                <h4 class="card-title">{{post.title}}</h4>
+            </div>
+            <div class="card-body">
+              <h5 class="col-4">Author: {{post.user.username}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{format_date post.createdAt}}</h6>
+              <p class="card-text">{{post.body}}</p>
+              <a class="link-unstyled" href="/post/{{post.id}}">View Post</a>
+            </div>
+            </div>
+        </div>
 {{/each}}

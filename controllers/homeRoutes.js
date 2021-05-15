@@ -55,7 +55,15 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-
+router.get('/newpost', (req, res) => {
+    if (!req.session.logged_in) {
+        res.redirect('/');
+        return;
+      }
+      res.render('newpost', {
+        logged_in: req.session.logged_in
+      });
+});
 
 
 router.get('/login', (req, res) => {
