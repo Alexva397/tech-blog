@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-10 text-center mb-3">
         <h2>{{user.username}}'s Dashboard</h3>
         <a class="btn btn-primary" href="/newpost" role="button">+ New Post</a>
     </div>
@@ -16,7 +16,8 @@
             <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-muted">{{format_date post.createdAt}}</h6>
                 <p class="card-text">{{post.body}}</p>
-                 <a class="link-unstyled" href="/post/{{post.id}}">View Post</a>
+                 <a class="btn btn-success" href="/post/{{post.id}}" role="button">View Post</a>
+                 <button type="button" class="btn btn-danger delete-button" post-id="{{post.id}}">Delete Post</button>
             </div>
             </div>
         </div>

@@ -12,19 +12,19 @@
 <body>
   <header class="display-flex justify-space-between align-center bg-success p-2">
     <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link fs-5" href="/">Home</a>
+      <li class="nav-item mr-2">
+        <a class="btn btn-dark text-light fs-5" href="/" role="button">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link fs-5" href="/dashboard">Dashboard</a>
+      <li class="nav-item mr-2">
+        <a class="btn btn-dark text-light fs-5" href="/dashboard" role="button">Dashboard</a>
       </li>
       {{#if logged_in}}
-      <li class="nav-item">
-        <a class="nav-link fs-5" href="/logout">Logout</a>
+      <li class="nav-item mr-2">
+        <a class="btn btn-dark text-light fs-5" href="/logout" role="button">Logout</a>
       </li>
       {{else}}
-        <li class="nav-item">
-          <a class="nav-link fs-5" href="/login">Login</a>
+        <li class="nav-item mr-2">
+          <a class="btn btn-dark text-light fs-5" href="/login" role="button">Login</a>
         </li>
       {{/if}}
     </ul>
