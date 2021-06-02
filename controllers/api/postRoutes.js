@@ -24,6 +24,7 @@ router.delete('/:id', withAuth, async (req, res) => {
                 user_id: req.session.user_id,
             }
         });
+        console.log(postData);
         if (!projectData) {
             res.status(404).json({ message: 'No project found with this id!' });
             return;

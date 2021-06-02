@@ -1,25 +1,22 @@
 <div class="row justify-content-center">
     <div class="col-10 text-center mb-3">
-        <h3>{{user.username}}'s Dashboard</h3>
-            <a class="btn btn-primary" href="/newpost" role="button">+ New Post</a>
+        <h3>Edit Post</h3>
     </div>
 </div>
 
 
-{{#if user.posts.length}}
-{{#each user.posts as |post| }}
 <div class="row justify-content-center">
     <div class="card col-10 p-0">
         <div class="card-header text-white bg-dark">
             <h4 class="card-title">{{post.title}}</h4>
         </div>
         <div class="card-body">
+            <h5>{{post.user.username}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{format_date post.createdAt}}</h6>
             <p class="card-text">{{post.body}}</p>
-            <a class="btn btn-warning" href="/dashboard/edit/{{post.id}}" role="button">Edit Post</a>
         </div>
+        <button id="delete-button" type="button" class="btn btn-danger" post-id="{{post.id}}">Delete Post</button>
     </div>
 </div>
-{{/each}}
-{{/if}}
 
+<script src="/js.editpost.js"></script>
