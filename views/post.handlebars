@@ -19,10 +19,10 @@
             </div>
         </div>
 
-    {{#each post.commments as |comment| }}
+    {{#each post.comments as |comment| }}
         <div class="card col-6 p-0 m-1">
             <div class="card-header">
-                <h5>{{comment.username}}</h5>
+                <h5>{{comment.user.username}}</h5>
             </div>
             <div class="card-body">
                 <h6>Date: {{format_date comment.createdAt}}</h6>
