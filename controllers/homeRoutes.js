@@ -81,7 +81,7 @@ router.get('/newuser', (req, res) => {
         res.redirect('/dashboard');
         return;
     }
-    res.render('newuser');
+    res.render('newUser');
 });
 
 router.get('/logout', (req, res) => {
