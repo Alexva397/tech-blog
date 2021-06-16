@@ -49,4 +49,4 @@ const editPost = async (event) => {
 
 
 document.getElementById('delete-button').addEventListener('click', deletePost);
-document.querySelector('.edit-form').addEventListener('click', editPost);
+document.querySelector('.edit-form').addEventListener('submit', editPost);
