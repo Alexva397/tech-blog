@@ -19,4 +19,34 @@ const deletePost = async (event) => {
     }
 };
 
+const editPost = async (event) => {
+  event.preventDefault();
+
+  const hrefString = window.location.toString();
+  const id = hrefString.substring(hrefString.lastIndexOf('/') + 1);
+    console.log(id);
+  const title = document.getElementById('edit-title').value.trim();
+  const body = document.getElementById('edit-body').value.trim();
+
+  if ( id && title && body) {
+    const response = await fetch(`/api/post/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ 
+        title: title,
+        body: body,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+
+
 document.getElementById('delete-button').addEventListener('click', deletePost);
+document.querySelector('.edit-form').addEventListener('click', editPost);
